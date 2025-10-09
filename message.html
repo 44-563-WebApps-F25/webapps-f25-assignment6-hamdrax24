@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Bolutife Sunkanmi-Qazzeem message cost</title>
+ </head>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="standardCharge">Enter cost per letter</label>
+    <input type ="number" id="standardCharge" name="form1_standard" value=0.50> <br>
+
+    <label for="discountLength">Enter the length needed for the discount</label>
+    <input type ="number" id="discountLength" name="form1_discount" autofocus> <br>
+
+    <label for="discountCharge">Enter the discount rate</label>
+    <input type ="number" id="discountCharge" name="form1_charge" value=0.25> <br>
+    
+    <input type="button" onclick="amounts()" value="Show total">
+</form>
+
+
+<p id="result">Totals are:</p>
+
+<script> 
+
+function amounts (){
+    pricePerLetter = Number(document.getElementById("standardCharge").value)
+    discountPosition = Number(document.getElementById("discountLength").value)
+    discount = Number(document.getElementById("discountCharge").value)
+
+    totalCosts = ""
+
+    for (let size = Number(discountPosition) - 3; size <= Number(discountPosition) + 3; size++) {
+        if(size <= discountPosition){
+            totalCosts += " length " + size + " is " + (size * pricePerLetter) + ";"
+        } else {
+            totalCosts += " length " + size + " is " + (size * discount) + ";"
+        }
+    }
+    
+    document.getElementById("result").innerHTML = "Totals are:" + totalCosts
+}
+</script>
+
+</body>
+</html> 
