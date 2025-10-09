@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Meal planner</title>
+ </head>
+<body>
+
+<h2>Bolutife Sunkanmi-Qazzeem plans a meal</h2>
+
+<form>
+    <label for="form1_check1">Serve salad </label>
+    <input type ="checkbox" id="form1_check1" checked> <br>
+
+    <label for="form1_check2">Make stew</label>
+    <input type ="checkbox" id="form1_check2" checked> <br>
+
+    <label for="form1_check3">Chocolate for dessert </label>
+    <input type ="checkbox" id="form1_check3" name="Meal Choices"> <br>
+
+    <input type="button" onclick="choices()" value="Meal Choices">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+
+var my_meal = {}
+
+function choices (){
+    my_meal = {}
+    my_meal.salad = document.getElementById("form1_check1").checked
+    my_meal.stew = document.getElementById("form1_check2").checked
+    my_meal.chocolate = document.getElementById("form1_check3").checked
+    
+    out = document.getElementById("result").innerHTML = JSON.stringify(my_meal)
+
+}
+</script>
+
+</body>
+</html> 
