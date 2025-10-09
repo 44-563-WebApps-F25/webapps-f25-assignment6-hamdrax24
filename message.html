@@ -20,8 +20,19 @@
     <input type="button" onclick="amounts()" value="Show total">
 </form>
 
-
 <p id="result">Totals are:</p>
+<br>
+<p id="radio_out"></p>
+<form>
+        <input type="radio" id="product" name="color" value="red" onclick="chooseOp(1)" checked >
+        <label for="product">Times</label></br>
+      
+        <input type="radio" id="sum" name="color" onclick="chooseOp(2)" value="blue">
+        <label for="sum">Add</label></br>
+      
+        <input type="radio" id="mod" name="color" value="green" onclick="chooseOp(3)">
+        <label for="mod">Mod</label></br>
+</form>
 
 <script> 
 
@@ -41,6 +52,27 @@ function amounts (){
     }
     
     document.getElementById("result").innerHTML = "Totals are:" + totalCosts
+}
+
+function chooseOp(operator){
+    pricePerLetter = Number(document.getElementById("standardCharge").value)
+    discountPosition = Number(document.getElementById("discountLength").value)
+
+    switch (operator) {
+        case 1:
+            document.getElementById("radio_out").innerHTML = pricePerLetter + " times " + discountPosition + " is " + (pricePerLetter * discountPosition)
+            break;
+    
+        case 2:
+            document.getElementById("radio_out").innerHTML = pricePerLetter + " add " + discountPosition + " is " + (pricePerLetter + discountPosition)
+            break;
+
+        case 3:
+            document.getElementById("radio_out").innerHTML = pricePerLetter + " mod  " + discountPosition + " is " + (pricePerLetter % discountPosition)
+            break;
+        default:
+            break;
+    }
 }
 </script>
 
