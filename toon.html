@@ -19,10 +19,14 @@
 
 <p id="yahoo_result">Correct Guesses: 0</p>
 <p id="darn_result">Wrong Guesses: 0</p>
+<div>
+    <img id="image_switch" src="African Daisy.jpg" onclick="updatePicd()" width="150" height="150">
+</div>
 
 <script> 
 var darn = 0;
 var yahoo = 0;
+var usePic = 1;
 
 function checkToon (){
     console.log("Getting form values")
@@ -43,6 +47,29 @@ function checkToon (){
             document.getElementById("darn_result").innerHTML = "Wrong Guesses: " + darn
             alert("Darn, Try again!");
         }
+    }
+}
+
+function updatePicd(){
+    usePic = usePic + 1
+    
+    switch (usePic) {
+        case 1:
+            document.getElementById("image_switch").src = "African Daisy.jpg"
+            break;
+    
+        case 2:
+            document.getElementById("image_switch").src = "Edelweiss.jpg"
+            break;
+
+        case 3:
+            document.getElementById("image_switch").src = "Zebra Plant.jpg"
+            break;
+
+        default:
+            document.getElementById("image_switch").src = "African Daisy.jpg"
+            usePic = 1
+            break;
     }
 }
 </script>
